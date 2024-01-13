@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Odin Weather App</title>
     <script src="main.js" defer></script>
 </head>
 <body>
     <div class="app">
-        <nav class="nav">
-            <input type="text" class="nav__text-box">
-            <button class="nav__button">-></button>
+        <nav>
+            <form class="nav">
+                <input id="searchInput" type="text" class="nav__text-box">
+                <button id="searchButton" class="nav__button">-></button>
+            </form>
         </nav>
     
 
@@ -22,23 +24,21 @@
 
                 <div>
                     <div class="weather__location">
-                        <div class="weather__h1">
-                            Toronto
+                        <div id="cityNameText" class="weather__h1">
                         </div>
-                        <div class="weather__h2">
-                            Mostly Sunny
+                        <div id="weatherTypeText" class="weather__h2">
                         </div>
                     </div>
             
                     <div class="flex-horizontal ai-center">
                         <div class="weather__temp">
-                            <span>70<sup>c</sup></span>
+                            <span id="temperatureText"></span><span><sup>c</sup></span>
                         </div>
             
                         <div class="weather__extras">
-                            <div id="feelsLikeText">Feels Like: 70c</div>
-                            <div id="windText">Wind: 5MPH</div>
-                            <div id="humidityText">Humidity: 10%</div>
+                            <div id="feelsLikeText"></div>
+                            <div id="windText"></div>
+                            <div id="humidityText"></div>
                         </div>
                     </div>
                 </div>

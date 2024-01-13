@@ -1,4 +1,30 @@
 import css from "./style.css";
+const searchInput = document.getElementById("searchInput");
+const searchButton = document.getElementById("searchButton");
+const cityNameText = document.getElementById("cityNameText");
+const weatherTypeText = document.getElementById("weatherTypeText");
+const temperatureText = document.getElementById("temperatureText");
+const feelsLikeText = document.getElementById("feelsLikeText");
+const windText = document.getElementById("windText");
+const humidityText = document.getElementById("humidityText");
+
+searchButton.addEventListener("click", e => {
+    e.preventDefault();
+    const cityNameInput = searchInput.value;
+    updateWeatherDisplay(cityNameInput);
+});
+
+async function updateWeatherDisplay(cityName) {
+    const weatherData = await getWeatherData(cityName);
+    console.log(weatherData);
+    cityNameText.innerText = weatherData["name"]    
+    weatherTypeText.innerText = weatherData["weather"][0]["main"];
+    temperatureText.innerText = weatherData["main"]["temp"];
+    // feelsLikeText.innerText = `${weatherData["main"]["feels_like"]}c`;
+    // windText.innerText = `${weatherData["wind"]["speed"]} MPH`;
+    // humidityText.innerText = `${weatherData["main"]["humidity"]}%`;
+}
+
 async function getWeatherData(cityName) {
     try {
         const APIKey = "3cca2df03456fd625a7bbe7f00a970d4";
@@ -11,7 +37,7 @@ async function getWeatherData(cityName) {
 
         // get weather data from coordinates
         let weatherData = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${APIKey}`, {mode: "cors"});
-        weatherData = await weatherData.json();
+        weatherData = await weatherData.json();       
         return weatherData;
 
     } catch (error) {
@@ -19,4 +45,6 @@ async function getWeatherData(cityName) {
     }
 };
 
-getWeatherData("Toronto")
+
+// initalize starting city
+updateWeatherDisplay("Toronto");

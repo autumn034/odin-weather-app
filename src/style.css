@@ -80,6 +80,7 @@ body {
 
 .weather {
     width: fit-content;
+    max-width: 32rem;
     padding: 6rem 2rem;
     margin: auto;
 }
@@ -97,6 +98,7 @@ body {
     }
 
     .weather__h1 {
+
         font-size: 3rem;
     }
 
@@ -113,8 +115,12 @@ body {
         font-size: 90%;
     }
 
-    .weather__img {
-        display: none;
+    .weather {
+        max-width: 20rem;
     }
+
+        .weather__img {
+            display: none;
+        }
 }
 
