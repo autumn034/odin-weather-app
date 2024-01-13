@@ -1,0 +1,117 @@
+/* General Style & CSS Reset */
+
+:root {
+    --clr-primary: #000000;
+    --clr-secondary: #ffffff;
+}
+
+*, *::before, ::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    margin: 0;
+    margin-top: 10vh;
+    background-color: #ededed;
+}
+
+/* Reusable */
+
+.flex-horizontal {
+    display: flex;
+    gap: 1rem;
+    height: 100%;
+    width: 100%;
+}
+
+    .flex-horizontal.ai-end {
+        align-items: end;
+    }
+
+    .flex-horizontal.ai-center {
+        align-items: center;
+    }
+
+/* One-Time */
+.app {
+    max-width: min(700px, 60vw);
+    background-color: var(--clr-secondary);
+    margin: auto;
+}
+
+.nav {
+    background-color: var(--clr-primary);
+    padding: 2rem 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.4rem;
+    color: var(--clr-secondary);
+    font-size: 2rem;
+}
+
+    .nav__text-box {
+        padding: 1rem;
+        font-size: 1rem;
+        font-family: 'Courier New', Courier, monospace;
+        width: 100%;
+        max-width: 400px;
+        border: 1px solid var(--clr-secondary);
+        outline: unset;
+        color: var(--clr-secondary);
+        background: var(--clr-primary);
+    }
+
+    .nav__button {
+        width: 5rem;
+        padding: 1rem;
+        border: 1px solid var(--clr-secondary);
+        color: var(--clr-secondary);
+        background: var(--clr-primary);
+    }
+
+        .nav__button:hover {
+            cursor: pointer;
+        }
+
+
+.weather {
+    width: fit-content;
+    height: 30vh;
+    padding: 2rem 2rem;
+    margin: auto;
+}
+
+    .weather__img {
+        height: 100%;
+    }
+
+        .weather__img > img {
+            height: 100%;
+        }
+
+    .weather__location {
+        line-height: 2.3rem;
+    }
+
+    .weather__h1 {
+        font-size: 3rem;
+    }
+
+    .weather__h2 {
+        font-size: 2em;
+    }
+
+    .weather__temp {
+        font-size: 3rem;
+    }
+
+@media only screen and (max-width: 50rem) {
+    .weather__img {
+        display: none;
+    }
+}
+
